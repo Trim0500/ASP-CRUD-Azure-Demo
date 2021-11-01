@@ -22,7 +22,6 @@ namespace CRUDDemo.Controllers
         // GET: Employees
         public async Task<IActionResult> Index()
         {
-            var crudDemoAppContext = _context.Employees.Include(e => e.department);
             return View(await _context.Employees.ToListAsync());
         }
 
@@ -47,6 +46,7 @@ namespace CRUDDemo.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
+            ViewData["FKDeptId"] = new SelectList(_context.Set<Department>(), "id", "depName");
             return View();
         }
 
@@ -63,6 +63,7 @@ namespace CRUDDemo.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FKDeptId"] = new SelectList(_context.Set<Department>(), "id", "depName");
             return View(employee);
         }
 
@@ -79,6 +80,7 @@ namespace CRUDDemo.Controllers
             {
                 return NotFound();
             }
+            ViewData["FKDeptId"] = new SelectList(_context.Set<Department>(), "id", "depName");
             return View(employee);
         }
 
@@ -114,6 +116,7 @@ namespace CRUDDemo.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FKDeptId"] = new SelectList(_context.Set<Department>(), "id", "depName");
             return View(employee);
         }
 
