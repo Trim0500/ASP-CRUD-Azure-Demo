@@ -13,9 +13,9 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="FKDepId" class="control-label"></label>
-                <input asp-for="FKDepId" class="form-control" />
-                <span asp-validation-for="FKDepId" class="text-danger"></span>
+                <label asp-for="department.depName" class="control-label"></label>
+                <input asp-for="department.depName" class="form-control" />
+                <span asp-validation-for="department.depName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EmpName" class="control-label"></label>
@@ -31,6 +31,11 @@
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="isActive" /> @Html.DisplayNameFor(model => model.isActive)
                 </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="age" class="control-label"></label>
+                <input asp-for="age" class="form-control" />
+                <span asp-validation-for="age" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

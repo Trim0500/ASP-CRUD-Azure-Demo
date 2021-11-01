@@ -46,7 +46,7 @@ namespace CRUDDemo.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
-            ViewData["FKDeptId"] = new SelectList(_context.Set<Department>(), "id", "depName");
+            ViewData["FKDepId"] = new SelectList(_context.Set<Department>(), "id", "depName");
             return View();
         }
 
@@ -55,7 +55,7 @@ namespace CRUDDemo.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,FKDepId,EmpName,Salary,isActive")] Employee employee)
+        public async Task<IActionResult> Create([Bind("id,FKDepId,EmpName,Salary,isActive,age")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -63,7 +63,7 @@ namespace CRUDDemo.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FKDeptId"] = new SelectList(_context.Set<Department>(), "id", "depName");
+            ViewData["FKDepId"] = new SelectList(_context.Set<Department>(), "id", "depName");
             return View(employee);
         }
 
@@ -80,7 +80,7 @@ namespace CRUDDemo.Controllers
             {
                 return NotFound();
             }
-            ViewData["FKDeptId"] = new SelectList(_context.Set<Department>(), "id", "depName");
+            ViewData["FKDepId"] = new SelectList(_context.Set<Department>(), "id", "depName");
             return View(employee);
         }
 
@@ -89,7 +89,7 @@ namespace CRUDDemo.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,FKDepId,EmpName,Salary,isActive")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("id,FKDepId,EmpName,Salary,isActive,age")] Employee employee)
         {
             if (id != employee.id)
             {
@@ -116,7 +116,7 @@ namespace CRUDDemo.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FKDeptId"] = new SelectList(_context.Set<Department>(), "id", "depName");
+            ViewData["FKDepId"] = new SelectList(_context.Set<Department>(), "id", "depName");
             return View(employee);
         }
 

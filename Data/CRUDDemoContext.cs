@@ -15,5 +15,6 @@ namespace CRUDDemo.Data
         }
 
         public DbSet<CRUDDemo.Models.Employee> Employees { get; set; }
+        public DbSet<CRUDDemo.Models.Department> Departments { get; set; }
     }
 }

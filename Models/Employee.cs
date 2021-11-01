@@ -18,5 +18,6 @@ namespace CRUDDemo.Models
         public decimal Salary { get; set; }
         public bool isActive { get; set; }
         public Department department { get; set; }
+        public int age { get; set; }
     }
 }
