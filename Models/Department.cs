@@ -15,5 +15,6 @@ namespace CRUDDemo.Models
         public string depName { get; set; }
         public bool isActive { get; set; }
         public ICollection<Employee> employees { get; set; }
+        public int age { get; set; }
     }
 }

@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/myverycoolservername/databases/EmployeeDemoDB",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:CRUDDemoContext",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
